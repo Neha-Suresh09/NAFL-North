@@ -49,7 +49,7 @@ if a>1500:
  Transition to renewable energy sources.
  Reduce, reuse, and recycle to minimize waste.
  Choose eco-friendly transportation options.
- Support reforestation and other carbon offset initiatives.
+ Reduce the usage of heavy appliances.
  Raise awareness and advocate for climate action. """)
 else:
     print("Carbon footprint level is lower than or equal to the recommended levels. You are on the right track!")
