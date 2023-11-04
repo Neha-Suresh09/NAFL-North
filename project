@@ -12,14 +12,33 @@ length_entry = tk.Entry(root)
 
 result_label = tk.Label(root, text="")
 
-# Create a calculate button
 calculate_button = tk.Button(root, text="Calculate Carbon footprint", command=calculate_cf)
 
-# Pack the widgets to display them
 length_label.pack()
 length_entry.pack()
 calculate_button.pack()
 result_label.pack()
 
-# Start the Tkinter main loop
 root.mainloop()
+
+import matplotlib.pyplot as plt
+x=["your carbon footprint","recommended carbon footprint"]
+a=int(input("Enter carbon footprint: "))
+y=[a,1500]
+
+plt.bar(x,y,color="skyblue")
+plt.xlabel("Eelctricity Consumption in kwh")
+plt.ylabel("Carbon Footprint in kg")
+plt.title("Carbon Footprint Level")
+plt.show()
+
+if a>1500:
+    print("Carbon footprint level is higher than the recommended levels. ")
+    print("""Some solutions are:\n Use energy-efficient appliances and practices.
+ Transition to renewable energy sources.
+ Reduce, reuse, and recycle to minimize waste.
+ Choose eco-friendly transportation options.
+ Support reforestation and other carbon offset initiatives.
+ Raise awareness and advocate for climate action. """)
+else:
+    print("Carbon footprint level is lower than or equal to the recommended levels. You are on the right track!")
