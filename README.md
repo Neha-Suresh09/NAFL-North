@@ -37,32 +37,6 @@ cursor = connection.cursor()
 query = "SELECT category, value FROM graph_data"
 cursor.execute(query)
 
-# Fetch the data
-data = cursor.fetchall()
-categories = [row[0] for row in data]
-values = [row[1] for row in data]
-plt.bar(categories, values)
-plt.xlabel("Categories")
-plt.ylabel("Values")
-plt.title("Bar Chart")
-plt.xticks(rotation=45)  # Rotate x-axis labels for better readability
-
-plt.show()
-cursor.close()
-connection.close()
-
-
-import tkinter as tk
-root=tk.Tk()
-def button_click():
-    label.config(text="Button Clicked")
-
-button=tk.Button(root, text="Click Me",command=button_click)
-root.geometry("800x500")
-label=tk.Label(root,text="")
-button.pack()
-label.pack()
-root.mainloop()
 
 
     
