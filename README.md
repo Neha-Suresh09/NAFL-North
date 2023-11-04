@@ -32,6 +32,24 @@ def read_pdf(file_path):
         print("File not found.")
     return None
 
+cursor = connection.cursor()
+# Replace with your query to retrieve the data
+query = "SELECT category, value FROM graph_data"
+cursor.execute(query)
+
+# Fetch the data
+data = cursor.fetchall()
+categories = [row[0] for row in data]
+values = [row[1] for row in data]
+plt.bar(categories, values)
+plt.xlabel("Categories")
+plt.ylabel("Values")
+plt.title("Bar Chart")
+plt.xticks(rotation=45)  # Rotate x-axis labels for better readability
+
+plt.show()
+cursor.close()
+connection.close()
 
 
 import tkinter as tk
