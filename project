@@ -21,16 +21,27 @@ result_label.pack()
 
 root.mainloop()
 
-import matplotlib.pyplot as plt
+root = tk.Tk()
+root.title("Carbon Footprint graph")
+root.geometry("800x600")
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+from matplotlib.figure import Figure
+
+# Create a Matplotlib figure
+fig = Figure(figsize=(6, 4), dpi=100)
+ax = fig.add_subplot(111)
 x=["your carbon footprint","recommended carbon footprint"]
 a=int(input("Enter carbon footprint: "))
 y=[a,1500]
 
-plt.bar(x,y,color="skyblue")
-plt.xlabel("Eelctricity Consumption in kwh")
-plt.ylabel("Carbon Footprint in kg")
-plt.title("Carbon Footprint Level")
-plt.show()
+ax.bar(x,y, color='skyblue')
+ax.set_xlabel('Categories')
+ax.set_ylabel('Values')
+ax.set_title('Bar Graph in Tkinter')
+canvas = FigureCanvasTkAgg(fig, master=root)
+canvas_widget = canvas.get_tk_widget()
+canvas_widget.pack(side=tk.TOP, fill=tk.BOTH, expand=True)
+root.mainloop()
 
 if a>1500:
     print("Carbon footprint level is higher than the recommended levels. ")
